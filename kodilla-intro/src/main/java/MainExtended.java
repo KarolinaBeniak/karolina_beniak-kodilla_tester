@@ -11,6 +11,6 @@ public class MainExtended {
         boolean isGoodDancer = true;
         System.out.println(isGoodDancer);
         boolean isGoodPlayer = false;
-        System.out.println(isGoodPlayer) ;
+        System.out.println(isGoodPlayer);
     }
 }
