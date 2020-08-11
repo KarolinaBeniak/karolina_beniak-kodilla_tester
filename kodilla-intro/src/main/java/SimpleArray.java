@@ -5,7 +5,6 @@ public class SimpleArray {
         names[0] = "Zygfryd";
         names[1] = "Gwidon";
         names[2] = "Florentyna";
-
         int numberOfElements = names.length;
 
         for (int i = 0; i < names.length; i++) {
