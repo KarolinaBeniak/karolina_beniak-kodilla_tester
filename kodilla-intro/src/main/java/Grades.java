@@ -1,5 +1,5 @@
 public class Grades {
-    private int[] grades;
+    private final int[] grades;
     private int size;
 
     public Grades() {
@@ -26,5 +26,11 @@ public class Grades {
             return 0;
         }
         return this.grades[this.size / 10];
+    }
+
+    public void showGrades() {
+        for (int i=0; i < grades.length; i++) {
+            System.out.println(i + " : " + grades[i]);
+        }
     }
 }

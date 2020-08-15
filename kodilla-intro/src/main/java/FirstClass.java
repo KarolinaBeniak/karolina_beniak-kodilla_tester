@@ -37,16 +37,15 @@ public class FirstClass {
         System.out.println(thirdNotebook.weight + " " + thirdNotebook.price + " " + thirdNotebook.year);
         thirdNotebook.checkYear();
 
-        Notebook pinkNotebook = new Notebook(600, 1800,2016);
-        System.out.println (pinkNotebook.price + " " + firstNotebook.year);
-        pinkNotebook.checkYearAndPrice();
-
-        Notebook redNotebook = new Notebook(2000, 1500,2019);
-        System.out.println(redNotebook.price + " " + redNotebook.year);
-        redNotebook.checkYearAndPrice();
-
-        Notebook greenNotebook = new Notebook(1600, 500, 2020);
-        System.out.println(greenNotebook.price + " " + greenNotebook.year);
-        greenNotebook.checkYearAndPrice();
+        processNotebook(600, 1800,2016);
+        processNotebook(2000, 1500,2019);
+        processNotebook(1600, 500, 2020);
     }
+
+    private static void processNotebook(int weight, int price, int year) {
+        Notebook notebook = new Notebook(1600, 500, 2020);
+        System.out.println("**** " + notebook.price + " " + notebook.year);
+        notebook.checkYearAndPrice();
+    }
+
 }
