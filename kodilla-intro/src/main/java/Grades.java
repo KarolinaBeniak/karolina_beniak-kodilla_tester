@@ -27,4 +27,10 @@ public class Grades {
         }
         return this.grades[this.size / 10];
     }
+
+        public void showGrades() {
+            for (int i=0; i < grades.length; i++) {
+                System.out.println(i + " : " + grades[i]);
+            }
+    }
 }
