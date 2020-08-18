@@ -21,14 +21,14 @@ public class Grades {
         }
         return this.grades[this.size - 1];
     }
-    public double averageGrades(int grades) {
-            double sumTab = 0.0;
-            int sizeTab = grades;
+    public double averageGrades(int[] grades) {
+            double addElementsTab = 0.0;
+            int sizeTab = grades.length;
 
-            for (double i : grades) {
-                sumTab += i;
+            for (int i : grades) {
+                addElementsTab += i;
             }
-            return (sizeTab == 0) ? 0 : sumTab/sizeTab;
+            return (sizeTab == 0) ? 0 : addElementsTab/sizeTab;
         }
         public void showGrades() {
             for (int i=0; i < grades.length; i++) {
