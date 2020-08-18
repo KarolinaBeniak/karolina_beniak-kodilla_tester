@@ -21,7 +21,7 @@ public class Grades {
         }
         return this.grades[this.size - 1];
     }
-    public double averageGrades(int[] grades) {
+    public double averageGrades() {
             double addElementsTab = 0.0;
             int sizeTab = grades.length;
 
