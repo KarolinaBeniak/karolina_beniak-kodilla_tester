@@ -23,7 +23,7 @@ public class Grades {
     }
     public double averageGrades() {
             double addElementsTab = 0.0;
-            int sizeTab = grades.length;
+            int sizeTab = this.grades.length;
 
             for (int i : grades) {
                 addElementsTab += i;
