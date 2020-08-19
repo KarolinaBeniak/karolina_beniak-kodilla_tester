@@ -1,41 +1,38 @@
 import java.util.Random;
+import java.util.concurrent.LinkedTransferQueue;
 
 public class RandomNumbers {
-    int maxNumber=5000;
-    int minNumber=0;
-    int suma=0;
+    private static int random = 0;
+    private static int suma = 0;
+    private static int min = 30;
+    private static int max = 0;
 
-    private static int randomNumbers() {
-        Random random = new Random();
-        int number = 0;
-
-
-        for (int i = number + number; i < 5001; i++) {
-            int randomNumber = random.nextInt(31);
-            number = randomNumber;
-        }
-        return number;
-        if ()
-    }
-    private static int maxValue() {
-        int this.maxNumber = maxNumber;
-        int numbersRandom = randomNumbers();
-        if (this.maxNumber<=numbersRandom) {
-            this.maxNumber = numbersRandom;
-        }
-        return maxNumber;
-    }
-    private static int minValue() {
-        int numbersRandom = randomNumbers();
-        if (this.minNumber>numbersRandom) {
-            this.minNumber = numbersRandom;
-        }
-        return minValue;
-    }
     public static void main(String[] args) {
-        System.out.println(maxValue());
-        System.out.println(minValue());
-    }
-}
-}
+        Random rnd = new Random();
 
+        while (suma < 5000) {
+            random = rnd.nextInt(31);
+            suma += random;
+
+            if (random < min ) {
+                min = random;
+            }
+
+            if (random > max) {
+                max = random;
+            }
+        }
+
+        System.out.println(getMaxRandom());
+        System.out.println(getMinRandom());
+    }
+
+    private static int getMinRandom() {
+        return min;
+    }
+
+    private static int getMaxRandom() {
+        return max;
+    }
+
+}
