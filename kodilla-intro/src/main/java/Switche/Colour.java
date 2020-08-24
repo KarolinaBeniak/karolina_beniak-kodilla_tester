@@ -3,17 +3,6 @@ package Switche;
 import java.util.Scanner;
 
 public class Colour {
-    public static String getFirstLetter() {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Enter the first letter of the colour:");
-            String colour = scanner.nextLine().trim();
-            if (colour.length() == 1) {
-                return colour;
-            }
-            System.out.println("Only one letter. Please, try again.");
-        }
-    }
 
     public static String getUserChoose() {
         Scanner scanner = new Scanner(System.in);
