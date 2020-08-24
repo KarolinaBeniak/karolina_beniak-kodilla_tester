@@ -1,3 +1,5 @@
+package Calculator;
+
 public class AdvCalculator {
     public double calculate() {
         String userSelected = UserDialogs.getUserSelection();
