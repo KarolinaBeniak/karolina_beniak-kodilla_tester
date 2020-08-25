@@ -1,3 +1,7 @@
+package Calculator;
+
+import Calculator.Calculator;
+
 public class CalcApplication {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();

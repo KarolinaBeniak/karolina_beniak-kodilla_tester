@@ -9,7 +9,6 @@ public class LeapYear {
             System.out.println("Podany rok jest przestepny.");
         } else {
             System.out.println("Podany rok nie jest przestepny.");
-
         }
     }
 }
