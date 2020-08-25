@@ -14,6 +14,7 @@ public class Application {
     public double getHeight() {
         return this.height;
     }
+
     public Application(String name, double age, double height) {
         this.name = name;
         this.age = age;
