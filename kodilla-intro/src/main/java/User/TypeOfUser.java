@@ -1,7 +1,9 @@
+package User;
+
 public class TypeOfUser {
-    public String name;
-    public double age;
-    public double height;
+    private String name;
+    private double age;
+    private double height;
 
     public String getName() {
         return this.name;
