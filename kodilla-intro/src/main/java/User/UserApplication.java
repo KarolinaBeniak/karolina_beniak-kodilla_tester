@@ -1,9 +1,5 @@
+package User;
 public class UserApplication {
-
-    public String name;
-    public double age;
-    public double height;
-
     public static void main(String[] args) {
         TypeOfUser app = new TypeOfUser("Adam", 15, 178);
         if (app.getName() != null) {
