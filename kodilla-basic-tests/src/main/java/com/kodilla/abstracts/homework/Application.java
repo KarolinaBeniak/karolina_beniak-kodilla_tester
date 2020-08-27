@@ -2,16 +2,16 @@ package com.kodilla.abstracts.homework;
 
 public class Application {
     public static void main(String[] args) {
-        Square squareArea = new Square(); squareArea.calculateArea();
+        Shape squareArea = new Square(); squareArea.calculateArea();
 
-        Square squareCircuit = new Square(); squareCircuit.calculateCircuit();
+        Shape squareCircuit = new Square(); squareCircuit.calculateCircuit();
 
-        Rectangle rectangleArea = new Rectangle(); rectangleArea.calculateArea();
+        Shape rectangleArea = new Rectangle(5, 2); rectangleArea.calculateArea();
 
-        Rectangle rectangleCircuit = new Rectangle(); rectangleCircuit.calculateCircuit();
+        Shape rectangleCircuit = new Rectangle(2, 6); rectangleCircuit.calculateCircuit();
 
-        Circle circleArea = new Circle(); circleArea.calculateArea();
+        Shape circleArea = new Circle(); circleArea.calculateArea();
 
-        Circle cirlceCircuit = new Circle(); cirlceCircuit.calculateCircuit();
+        Shape cirlceCircuit = new Circle(); cirlceCircuit.calculateCircuit();
     }
 }
