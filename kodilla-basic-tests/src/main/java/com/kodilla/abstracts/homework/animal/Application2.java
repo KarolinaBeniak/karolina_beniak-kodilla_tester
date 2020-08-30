@@ -1,4 +1,4 @@
-package com.kodilla.abstracts;
+package com.kodilla.abstracts.homework.animal;
 
 public class Application2 {
     public static void main(String[] args) {

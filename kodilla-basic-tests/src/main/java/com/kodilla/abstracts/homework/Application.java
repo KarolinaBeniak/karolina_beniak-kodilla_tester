@@ -1,27 +1,32 @@
 package com.kodilla.abstracts.homework;
 
-public class New {
+public class Application {
     public static void main(String[] args) {
         Shape squarePerimeter = new Square(3);
-        Shape squareSurfaceArea = new Square(2);
+        Shape squareArea = new Square(2);
         Shape rectanglePerimeter = new Rectangle(4, 6);
-        Shape rectangleSurfaceArea = new Rectangle(4, 4);
+        Shape rectangleArea = new Rectangle(4, 4);
         Shape circlePerimeter = new Circle(3);
-        Shape cirlceSurfaceArea = new Circle(4);
+        Shape cirlceArea = new Circle(4);
 
-        Shape[] tablicaShape = new Shape[5];
+        Shape[] tablicaShape = new Shape[6];
 
         tablicaShape[0] = squarePerimeter;
-        tablicaShape[1] = squareSurfaceArea;
+        tablicaShape[1] = squareArea;
         tablicaShape[2] = rectanglePerimeter;
-        tablicaShape[3] = rectangleSurfaceArea;
+        tablicaShape[3] = rectangleArea;
         tablicaShape[4] = circlePerimeter;
-        tablicaShape[5] = cirlceSurfaceArea;
+        tablicaShape[5] = cirlceArea;
 
-        int result = 0;
-        for (Shape sideA : tablicaShape) {
-            result = sideA.calculatePerimeter();
-            System.out.println("Square\n" + "Perimeter :" + result);
+        for (Shape result : tablicaShape) {
+            if (result.typ().equals("Circle")) {
+                System.out.println("Circle\n" + "Perimeter:" + result.calculatePerimeter() + "\n" + "Area: " + result.calculateArea());
+
+            } else if (result.typ().equals("Rectangle")) {
+                System.out.println("Rectangle\n" + "Perimeter:" + result.calculatePerimeter() + "\n" + "Area: " + result.calculateArea());
+            } else {
+                System.out.println("Square\n" + "Perimeter:" + result.calculatePerimeter() + "\n" + "Area: " + result.calculateArea());
+            }
         }
     }
 }

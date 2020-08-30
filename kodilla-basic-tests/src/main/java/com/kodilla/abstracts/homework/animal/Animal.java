@@ -1,4 +1,4 @@
-package com.kodilla.abstracts;
+package com.kodilla.abstracts.homework.animal;
 
 public abstract class Animal {
 

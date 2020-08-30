@@ -1,6 +1,8 @@
-package com.kodilla.abstracts;
+package com.kodilla.abstracts.homework.animal;
 
-public class Duck extends Animal{
+import com.kodilla.abstracts.homework.animal.Animal;
+
+public class Duck extends Animal {
     public Duck() {
         super(2);
     }

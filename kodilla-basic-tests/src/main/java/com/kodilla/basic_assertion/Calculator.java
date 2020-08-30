@@ -20,4 +20,3 @@ public class Calculator {
         return b2;
     }
 }
-
