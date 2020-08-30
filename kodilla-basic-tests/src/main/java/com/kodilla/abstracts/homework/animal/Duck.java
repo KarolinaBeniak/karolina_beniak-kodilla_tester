@@ -1,4 +1,4 @@
-package com.kodilla.abstracts.homework.animal;
+package com.kodilla.abstracts;
 
 import com.kodilla.abstracts.homework.animal.Animal;
 
