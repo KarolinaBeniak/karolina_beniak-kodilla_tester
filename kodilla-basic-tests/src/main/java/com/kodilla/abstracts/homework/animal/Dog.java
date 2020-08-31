@@ -1,4 +1,6 @@
-package com.kodilla.abstracts;
+package com.kodilla.abstracts.homework.animal;
+
+import com.kodilla.abstracts.homework.animal.Animal;
 
 public class Dog extends Animal {
     public Dog(){
