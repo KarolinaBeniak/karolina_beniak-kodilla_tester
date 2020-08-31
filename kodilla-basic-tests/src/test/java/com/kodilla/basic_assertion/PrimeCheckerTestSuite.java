@@ -7,45 +7,60 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PrimeCheckerTestSuite {
 
+    private PrimeChecker checker = new PrimeChecker();
+    private static int count =0;
+
     @Test
     public void shouldReturnFalseWhenPassingNotPrimeNumber() {
-        PrimeChecker checker = new PrimeChecker();
         boolean result = checker.isPrime(14);
+        count++;
+        checker.incrementCount();
+        System.out.println("Test number " + count);
         assertFalse(result);
     }
 
     @Test
     public void shouldReturnTrueWhenPassingPrimeNumber() {
-        PrimeChecker checker = new PrimeChecker();
         boolean result = checker.isPrime(13);
+        count++;
+        checker.incrementCount();
+        System.out.println("Test number " + count);
         assertTrue(result);
     }
 
     @Test
     public void shouldReturnTrueWhenPassingTwo() {
-        PrimeChecker checker = new PrimeChecker();
         boolean result = checker.isPrime(2);
+        count++;
+        checker.incrementCount();
+        System.out.println("Test number " + count);
         assertTrue(result);
     }
 
     @Test
     public void shouldReturnFalseWhenPassingOne() {
-        PrimeChecker checker = new PrimeChecker();
         boolean result = checker.isPrime(1);
+        count++;
+        checker.incrementCount();
+        System.out.println("Test number " + count);
         assertFalse(result);
     }
 
     @Test
     public void shouldReturnFalseWhenPassingZero() {
-        PrimeChecker checker = new PrimeChecker();
         boolean result = checker.isPrime(0);
+        count++;
+        checker.incrementCount();
+        System.out.println("Test number " + count);
         assertFalse(result);
     }
 
     @Test
     public void shouldReturnFalseWhenPassingNegativeNumber() {
-        PrimeChecker checker = new PrimeChecker();
         boolean result = checker.isPrime(-6);
+        count++;
+        checker.incrementCount();
+        System.out.println("Test number " + count);
         assertFalse(result);
     }
 }
