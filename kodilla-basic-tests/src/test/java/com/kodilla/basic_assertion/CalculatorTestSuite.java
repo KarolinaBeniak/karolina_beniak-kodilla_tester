@@ -14,32 +14,37 @@ public class CalculatorTestSuite {
         int sumResult = calculator.sum(a, b);
         assertEquals(13, sumResult);
     }
+
     @Test
     public void testSubtraction() {
-        Calculator calculatorSub = new Calculator();
+        Calculator calculator = new Calculator();
         int a = 4;
         int b = 3;
-        int subResult = calculatorSub.subtract(a,b);
-        assertEquals(1,subResult);
+        int subResult = calculator.subtract(a, b);
+        assertEquals(1, subResult);
     }
+
     @Test
-    public void testPowerPlus(){
-        Calculator calculatorPlus = new Calculator();
-        int a =5;
-        int plusPowerResult = calculatorPlus.squareA(a);
-        assertEquals(25,plusPowerResult);
+    public void testToSquareNumberGreaterThanZero() {
+        Calculator calculator = new Calculator();
+        int a = 8;
+        int squareResult = calculator.square(a);
+        assertEquals(64, squareResult);
     }
+
     @Test
-    public void testNegativePower(){
-        Calculator calculatorNegative = new Calculator();
-        int a = -4;
-        int plusNegativeResult = calculatorNegative.squareA(a);
-        assertNotEquals(-16,plusNegativeResult);
+    public void testToSquareNumberLessThanZero() {
+        Calculator calculator = new Calculator();
+        int a = -9;
+        int squareResult = calculator.square(a);
+        assertEquals(81, squareResult);
     }
+
     @Test
-    public void testPower0(){
-        Calculator calculatorZero = new Calculator();
+    public void testToSquareEqualsZero() {
+        Calculator calculator = new Calculator();
         int a = 0;
-        assertEquals(0,0);
+        int squareResult = calculator.square(a);
+        assertEquals(0, squareResult);
     }
 }
