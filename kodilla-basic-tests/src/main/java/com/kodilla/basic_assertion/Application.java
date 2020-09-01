@@ -20,19 +20,12 @@ public class Application {
         } else {
             System.out.println("Metoda odejmowania nie działa poprawnie dla liczb " + a + " i " + b);
         }
-        int squareAResult = calculator.squareA(a);
-        boolean correctSquareA = ResultChecker.assertEquals(25, squareAResult);
-        if (correctSquareA) {
+        int squareAResult = calculator.square(a);
+        boolean correctSquare = ResultChecker.assertEquals(25, squareAResult);
+        if (correctSquare) {
             System.out.println("Metoda obliczania kwadratu działa poprawnie dla liczby " + a);
         } else {
             System.out.println("Metoda obliczania kwadratu nie działa poprawnie dla liczby " + a);
-        }
-        int squareBResult = calculator.squareA(a);
-        boolean correctSquareB = ResultChecker.assertEquals(30, squareBResult);
-        if (correctSquareB) {
-            System.out.println("Metoda obliczania kwadratu działa poprawnie dla liczby " + b);
-        } else {
-            System.out.println("Metoda obliczania kwadratu nie działa poprawnie dla liczby " + b);
         }
     }
 }
