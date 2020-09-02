@@ -51,7 +51,7 @@ public class CashMachineTestSuite {
         cashMachine.addTransaction(-30);
         cashMachine.addTransaction(20);
         cashMachine.addTransaction(55);
-        assertEquals(46.25, cashMachine.getAverageDeposit(), 0.01);
+        assertEquals(46.25, cashMachine.getAverageDeposits(), 0.01);
     }
 
     @Test
@@ -62,15 +62,24 @@ public class CashMachineTestSuite {
         cashMachine.addTransaction(-100);
         assertEquals(-75.0, cashMachine.getAverageWithdrawals(), 0.01);
     }
+
     @Test
-    public  void  shouldReturnBalanceZeroIfNoTransactionsWereMade () {
-        CashMachine cashMachine =  new  CashMachine ();
-        assertEquals(0,cashMachine.getBalance());
-    }
-    @Test
-    public  void  shouldReturnAverageZeroIfNoTransactionsWereMade () {
-        CashMachine cashMachine =  new  CashMachine ();
-        assertEquals ( 0.0 , cashMachine.getAverageDeposit () + cashMachine.getAverageWithdrawals (), 0.01 );
+    public void shouldReturnBalanceZeroIfNoTransactionsWereMade() {
+        CashMachine cashMachine = new CashMachine();
+        assertEquals(0, cashMachine.getBalance());
     }
 
+    @Test
+    public void shouldReturnAverageZeroIfNoTransactionsWereMade() {
+        CashMachine cashMachine = new CashMachine();
+        assertEquals(0.0, cashMachine.getAverageDeposits() + cashMachine.getAverageWithdrawals(), 0.01);
+    }
+    @Test
+    public void shouldNotCountWithdrawTransactionIfBankomatIsEmpty() {
+        CashMachine cashMachine = new CashMachine();
+        cashMachine.addTransaction(-20);
+        cashMachine.addTransaction(-50);
+        cashMachine.addTransaction(-50);
+        assertEquals(0, cashMachine.getNumberOfWithdrawals());
+    }
 }

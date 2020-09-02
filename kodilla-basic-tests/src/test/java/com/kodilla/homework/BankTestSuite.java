@@ -1,6 +1,7 @@
 package com.kodilla.homework;
 
 import com.kodilla.bank.homework.Bank;
+import com.kodilla.bank.homework.CashMachine;
 import  org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BankTestSuite {
@@ -91,4 +92,52 @@ public class BankTestSuite {
 
         assertEquals(-95.55,bank.getAverageTotalOfWithdrawals(),0.01);
     }
+
+    @Test
+    public void shouldGetNumberOfAllTransactionsFromAllMachines(){
+        Bank bank= new Bank(3);
+        bank.addTransaction(0,30);
+        bank.addTransaction(0,100);
+        bank.addTransaction(0,-70);
+        bank.addTransaction(0,10);
+
+        bank.addTransaction(1,10);
+        bank.addTransaction(1,-200);
+        bank.addTransaction(1,-100);
+        bank.addTransaction(1,-50);
+
+        bank.addTransaction(2,50);
+        bank.addTransaction(2,200);
+        bank.addTransaction(2,50);
+        bank.addTransaction(2,-100);
+
+
+        int countOfAllTransactions = bank.getTotalNumberBalance();
+        assertEquals(12,countOfAllTransactions);
+        }
+
+    @Test
+    public void shouldGetNumberOfAllTransactionsFromTwoOutOffThreeMachines(){
+        Bank bank= new Bank(2);
+        bank.addTransaction(0,30);
+        bank.addTransaction(0,100);
+        bank.addTransaction(0,-70);
+        bank.addTransaction(0,10);
+
+        bank.addTransaction(1,10);
+        bank.addTransaction(1,-200);
+        bank.addTransaction(1,-100);
+        bank.addTransaction(1,-50);
+
+        bank.addTransaction(2,50);
+        bank.addTransaction(2,200);
+        bank.addTransaction(2,50);
+        bank.addTransaction(2,-100);
+
+
+        int countOfAllTransactionsOffTwoMachines = bank.getTotalNumberBalance();
+        assertEquals(8,countOfAllTransactionsOffTwoMachines);
+    }
 }
+
+

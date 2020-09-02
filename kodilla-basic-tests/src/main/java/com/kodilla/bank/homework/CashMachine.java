@@ -20,7 +20,13 @@ public class CashMachine {
     public int[] getTransactions() {
         return transactions;
     }
-
+    public int getNumberOfAllTransactions(){
+        int sum = 0;
+        for (int i = 0; i <transactions.length; i++){
+            sum = sum + getTransactions().length;
+        }
+        return sum;
+    }
     public int getBalance() {  //liczymy saldo
         int sum = 0;
         for (int i = 0; i < transactions.length; i++) {
@@ -49,7 +55,8 @@ public class CashMachine {
         return sum;
     }
 
-    public double getAverageDeposit() {  //średnia wartość wpłaty
+
+    public double getAverageDeposits() {  //średnia wartość wpłaty
         if (this.transactions.length == 0) {
             return 0;
         }

@@ -31,8 +31,15 @@ public class Bank {
         }
         return sum;
     }
+    public int getTotalNumberBalance(){
+        int sum =  0 ;
+        for ( int i =  0 ; i < cashMachine.length; i ++ ) {
+            sum = sum + cashMachine[i].getTransactions().length;
+        }
+        return sum ;
+    }
 
-    public double getCountTransactionsOfWithdrawals() { // liczba transakcji dot.wypłaty
+    public double getCountTransactionsOfWithdrawals(){ // liczba transakcji dot.wypłaty
         double sum = 0;
         for (int i = 0; i < cashMachine.length; i++) {
             sum = sum + cashMachine[i].getNumberOfWithdrawals();
@@ -67,7 +74,7 @@ public class Bank {
         double sum = 0;
 
         for (int i = 0; i < cashMachine.length; i++) {
-            sum = sum + cashMachine[i].getAverageDeposit();
+            sum = sum + cashMachine[i].getAverageDeposits();
         }
         return (sum / cashMachine.length);
     }
