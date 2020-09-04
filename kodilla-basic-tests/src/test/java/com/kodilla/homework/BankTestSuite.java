@@ -6,137 +6,99 @@ import  org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class BankTestSuite {
     @Test
-    public void shouldReturnNumberDevices() {
-        Bank bank = new Bank(3);
-        assertEquals(3, bank.getNumberOfDevices());
+    public void shouldTotalBalance() {
+        CashMachine[] bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10, 100, -50});
+        bankCashMachines[1] = new CashMachine(new double[]{50, 30});
+        bankCashMachines[2] = new CashMachine(new double[]{50, 50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(240, bank.getTotalBalance(),0.01);
+    }
+    @Test
+    public void shouldZeroBalance() {
+        CashMachine[] bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{ 100});
+        bankCashMachines[1] = new CashMachine(new double[]{-50});
+        bankCashMachines[2] = new CashMachine(new double[]{-50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(0, bank.getTotalBalance(),0.01);
+    }
+
+    @Test
+    public void shouldTotalNumberTransactionsOfAllMachines(){
+        CashMachine[] bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10, 100, -50});
+        bankCashMachines[1] = new CashMachine(new double[]{50, 30});
+        bankCashMachines[2] = new CashMachine(new double[]{50, 50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(7, bank.getTotalBalanceNumber(), 0.01);
     }
     @Test
     public void shouldCountNumberAllDeposits() {
-        Bank bank = new Bank(3);
-
-        bank.addTransaction(0,30);
-        bank.addTransaction(0,100);
-        bank.addTransaction(0,-70);
-        bank.addTransaction(0,10);
-
-        bank.addTransaction(1,10);
-        bank.addTransaction(1,-200);
-        bank.addTransaction(1,-100);
-        bank.addTransaction(1,-50);
-
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,200);
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,-100);
-
-        assertEquals(7,bank.getCountTransactionsOfDeposits());
+        CashMachine[]bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10,100,-50});
+        bankCashMachines[1] = new CashMachine(new double[]{50,30});
+        bankCashMachines[2] = new CashMachine(new double[]{50,50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(6,bank.getCountNumberOfAllDeposits());
     }
     @Test
     public void shouldCountNumberAllWithdrawals() {
-        Bank bank = new Bank(3);
+        CashMachine[] bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10, 100, -50});
+        bankCashMachines[1] = new CashMachine(new double[]{50, 30});
+        bankCashMachines[2] = new CashMachine(new double[]{50, 50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(1, bank.getCountNumberOfAllWithdrawals());
+    }
+    @Test
+    public void shouldCountValueOfAllDeposits() {
+        CashMachine[]bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10,100,-50});
+        bankCashMachines[1] = new CashMachine(new double[]{50,30});
+        bankCashMachines[2] = new CashMachine(new double[]{50,50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(290,bank.getCountValueOfDeposits());
 
-        bank.addTransaction(0,30);
-        bank.addTransaction(0,100);
-        bank.addTransaction(0,-70);
-        bank.addTransaction(0,10);
+    }
+    @Test
+    public void shouldCountValueOfAllWithdrawals(){
+        CashMachine[]bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10,100,-50});
+        bankCashMachines[1] = new CashMachine(new double[]{50,30});
+        bankCashMachines[2] = new CashMachine(new double[]{50,50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(-50,bank.getCountValueOfWithdrawals());
 
-        bank.addTransaction(1,10);
-        bank.addTransaction(1,-200);
-        bank.addTransaction(1,-100);
-        bank.addTransaction(1,-50);
-
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,200);
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,-100);
-
-        assertEquals(5,bank.getCountTransactionsOfWithdrawals());
     }
     @Test
     public void shouldCalcAverageOfAllDeposits(){
-        Bank bank = new Bank(3);
-        bank.addTransaction(0,30);
-        bank.addTransaction(0,100);
-        bank.addTransaction(0,-70);
-        bank.addTransaction(0,10);
-
-        bank.addTransaction(1,10);
-        bank.addTransaction(1,-200);
-        bank.addTransaction(1,-100);
-        bank.addTransaction(1,-50);
-
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,200);
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,-100);
-
-        assertEquals(52.22,bank.getAverageTotalOfDeposits(),0.01);
+        CashMachine[]bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10,100,-50});
+        bankCashMachines[1] = new CashMachine(new double[]{50,30});
+        bankCashMachines[2] = new CashMachine(new double[]{50,50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(48.33,bank.getAverageTotalOfDeposits(),0.01);
     }
     @Test
     public void shouldCalcAverageOfAllWithdrawals(){
-        Bank bank = new Bank(3);
-        bank.addTransaction(0,30);
-        bank.addTransaction(0,100);
-        bank.addTransaction(0,-70);
-        bank.addTransaction(0,10);
-
-        bank.addTransaction(1,10);
-        bank.addTransaction(1,-200);
-        bank.addTransaction(1,-100);
-        bank.addTransaction(1,-50);
-
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,200);
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,-100);
-
-        assertEquals(-95.55,bank.getAverageTotalOfWithdrawals(),0.01);
+        CashMachine[]bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{10,100,-50});
+        bankCashMachines[1] = new CashMachine(new double[]{50,30});
+        bankCashMachines[2] = new CashMachine(new double[]{50,50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(-16.66,bank.getAverageTotalOfWithdrawals(),0.01);
     }
 
     @Test
-    public void shouldGetNumberOfAllTransactionsFromAllMachines(){
-        Bank bank= new Bank(3);
-        bank.addTransaction(0,30);
-        bank.addTransaction(0,100);
-        bank.addTransaction(0,-70);
-        bank.addTransaction(0,10);
-
-        bank.addTransaction(1,10);
-        bank.addTransaction(1,-200);
-        bank.addTransaction(1,-100);
-        bank.addTransaction(1,-50);
-
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,200);
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,-100);
-
-
-        int countOfAllTransactions = bank.getTotalNumberBalance();
-        assertEquals(12,countOfAllTransactions);
-        }
-
-    @Test
     public void shouldGetNumberOfAllTransactionsFromTwoOutOffThreeMachines(){
-        Bank bank= new Bank(2);
-        bank.addTransaction(0,30);
-        bank.addTransaction(0,100);
-        bank.addTransaction(0,-70);
-        bank.addTransaction(0,10);
+        CashMachine[]bankCashMachines = new CashMachine[2];
+        bankCashMachines[0] = new CashMachine(new double[]{10,100,-50});
+        bankCashMachines[1] = new CashMachine(new double[]{50,30});
+        Bank bank = new Bank(bankCashMachines);
 
-        bank.addTransaction(1,10);
-        bank.addTransaction(1,-200);
-        bank.addTransaction(1,-100);
-        bank.addTransaction(1,-50);
-
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,200);
-        bank.addTransaction(2,50);
-        bank.addTransaction(2,-100);
-
-
-        int countOfAllTransactionsOffTwoMachines = bank.getTotalNumberBalance();
-        assertEquals(8,countOfAllTransactionsOffTwoMachines);
+        double countOfAllTransactionsOffTwoMachines = bank.getTotalBalanceNumber();
+        assertEquals(5,countOfAllTransactionsOffTwoMachines);
     }
 }
 
