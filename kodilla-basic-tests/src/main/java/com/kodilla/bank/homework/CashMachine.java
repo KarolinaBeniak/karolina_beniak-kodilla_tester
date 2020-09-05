@@ -2,6 +2,7 @@ package com.kodilla.bank.homework;
 
 public class CashMachine {
     double[] transactions;//tablica przedstawia liczbe transakcji
+
     public CashMachine(double [] transactions) {
         this.transactions = transactions;
     }
