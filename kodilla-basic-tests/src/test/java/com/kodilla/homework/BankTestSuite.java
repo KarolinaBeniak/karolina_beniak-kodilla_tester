@@ -31,7 +31,7 @@ public class BankTestSuite {
         bankCashMachines[1] = new CashMachine(new double[]{50, 30});
         bankCashMachines[2] = new CashMachine(new double[]{50, 50});
         Bank bank = new Bank(bankCashMachines);
-        assertEquals(7, bank.getTotalBalanceNumber(), 0.01);
+        assertEquals(7, bank.getTotalNumberOfAllTransactions(), 0.01);
     }
     @Test
     public void shouldCountNumberAllDeposits() {
@@ -87,7 +87,7 @@ public class BankTestSuite {
         bankCashMachines[1] = new CashMachine(new double[]{50,30});
         bankCashMachines[2] = new CashMachine(new double[]{50,50});
         Bank bank = new Bank(bankCashMachines);
-        assertEquals(-16.66,bank.getAverageTotalOfWithdrawals(),0.01);
+        assertEquals(-50,bank.getAverageTotalOfWithdrawals(),0.01);
     }
 
     @Test
@@ -97,8 +97,17 @@ public class BankTestSuite {
         bankCashMachines[1] = new CashMachine(new double[]{50,30});
         Bank bank = new Bank(bankCashMachines);
 
-        double countOfAllTransactionsOffTwoMachines = bank.getTotalBalanceNumber();
+        double countOfAllTransactionsOffTwoMachines = bank.getTotalNumberOfAllTransactions();
         assertEquals(5,countOfAllTransactionsOffTwoMachines);
+    }
+    @Test
+    public void testAvarage() {
+        CashMachine[]bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{});
+        bankCashMachines[1] = new CashMachine(new double[]{50});
+        bankCashMachines[2] = new CashMachine(new double[]{50});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(0, bank.getAverageTotalOfWithdrawals());
     }
 }
 

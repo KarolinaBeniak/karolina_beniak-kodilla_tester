@@ -16,7 +16,7 @@ public class Bank {
         return sum;
     }
 
-    public double getTotalBalanceNumber() { //całkowity bilans ze wszystkich bankomatów
+    public double getTotalNumberOfAllTransactions() { //całkowity bilans ze wszystkich bankomatów
         double sum = 0;
         for (CashMachine bankCashMachine : this.bankCashMachines) {
             sum += bankCashMachine.getTransactions();
@@ -64,26 +64,25 @@ public class Bank {
     }
 
     public double getAverageTotalOfWithdrawals() { // średnia wartość wypłaty
-        if (this.bankCashMachines.length == 0) {
-            return 0;
-        }
         double sum = 0;
-
-        for (CashMachine bankCashMachine : bankCashMachines) {
-            sum = sum + bankCashMachine.getAverageWithdrawals();
+        int transaction = 0;
+        for (int i = 0; i < this.bankCashMachines.length; i++) {
+            transaction+= this.bankCashMachines[i].getNumberOfWithdrawals();
+            sum += this.bankCashMachines[i].getCountOfWithdrawals();
         }
-        return (sum/bankCashMachines.length);
+        if(transaction == 0)
+            return 0;
+        return sum / transaction;
     }
-
     public double getAverageTotalOfDeposits() { // średnia wariość wpłaty
-        if (this.bankCashMachines.length == 0) {
-            return 0;
-        }
         double sum = 0;
-
-        for (CashMachine bankCashMachine : bankCashMachines) {
-            sum = sum + bankCashMachine.getAverageDeposits();
+        int transaction = 0;
+        for (int i = 0; i < this.bankCashMachines.length; i++) {
+            transaction+= this.bankCashMachines[i].getNumberOfDeposits();
+            sum += this.bankCashMachines[i].getCountOfDeposits();
         }
-        return (sum/bankCashMachines.length);
+        if(transaction == 0)
+            return 0;
+        return sum / transaction;
     }
 }
