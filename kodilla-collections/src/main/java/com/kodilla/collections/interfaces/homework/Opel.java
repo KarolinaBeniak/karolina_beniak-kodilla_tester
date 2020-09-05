@@ -23,11 +23,4 @@ public class Opel implements Car {
         this.speed = getSpeed() - 15;
 
     }
-
-    @Override
-    public String toString() {
-        return "Opel {" +
-                "speed =" + speed +
-                '}';
-    }
 }

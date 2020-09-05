@@ -22,11 +22,5 @@ public class Volkswagen implements Car {
     public void decreaseSpeed() {
         this.speed = getSpeed() - 5;
     }
-
-    @Override
-    public String toString() {
-        return "Volkswagen {" +
-                "speed =" + speed +
-                '}';
-    }
 }
+
