@@ -101,13 +101,22 @@ public class BankTestSuite {
         assertEquals(5,countOfAllTransactionsOffTwoMachines);
     }
     @Test
-    public void testAvarage() {
+    public void shouldReturnZeroOfAverageFromWithdrawals() {
         CashMachine[]bankCashMachines = new CashMachine[3];
         bankCashMachines[0] = new CashMachine(new double[]{});
         bankCashMachines[1] = new CashMachine(new double[]{50});
         bankCashMachines[2] = new CashMachine(new double[]{50});
         Bank bank = new Bank(bankCashMachines);
         assertEquals(0, bank.getAverageTotalOfWithdrawals());
+    }
+    @Test
+    public void shouldReturnAverageIfOneCashMachineIsEmpty() {
+        CashMachine[]bankCashMachines = new CashMachine[3];
+        bankCashMachines[0] = new CashMachine(new double[]{});
+        bankCashMachines[1] = new CashMachine(new double[]{50});
+        bankCashMachines[2] = new CashMachine(new double[]{-10});
+        Bank bank = new Bank(bankCashMachines);
+        assertEquals(40, bank.getAverageTotalOfWithdrawals() + bank.getAverageTotalOfDeposits(),0.01);
     }
 }
 

@@ -53,11 +53,6 @@ public class CashMachineTestSuite {
         assertEquals(0.0, cashMachine.getAverageDeposits() + cashMachine.getAverageWithdrawals(), 0.01);
     }
 
-    @Test
-    public void shouldNotCountWithdrawTransactionIfBankomatIsEmpty() { //; tu nie jestem pewna czy dobrze, może być też metoda shouldReturnZeroBalance
-        CashMachine cashMachine = new CashMachine(new double[]{100, -100});
-        assertEquals(0, cashMachine.getBalance());
-    }
 
     @Test
     public void shouldReturnZeroTransactions() {
