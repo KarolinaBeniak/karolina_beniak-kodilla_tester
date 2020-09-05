@@ -15,12 +15,12 @@ public class Volkswagen implements Car {
 
     @Override
     public void increaseSpeed() {
-        this.speed = getSpeed() + 15;
+        this.speed += 15;
     }
 
     @Override
     public void decreaseSpeed() {
-        this.speed = getSpeed() - 5;
+        this.speed -= 5;
     }
 }
 

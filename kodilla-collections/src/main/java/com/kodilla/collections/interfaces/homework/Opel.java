@@ -14,13 +14,13 @@ public class Opel implements Car {
 
     @Override
     public void increaseSpeed() {
-        this.speed = getSpeed() + 20;
+        this.speed += 20;
 
     }
 
     @Override
     public void decreaseSpeed() {
-        this.speed = getSpeed() - 15;
+        this.speed -= 15;
 
     }
 }

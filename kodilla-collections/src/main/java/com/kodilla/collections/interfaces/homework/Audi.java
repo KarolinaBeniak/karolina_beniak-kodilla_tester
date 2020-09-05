@@ -14,11 +14,11 @@ public class Audi implements Car {
 
     @Override
     public void increaseSpeed() {
-        this.speed = getSpeed() + 10;
+        this.speed += 10;
     }
 
     @Override
     public void decreaseSpeed() {
-        this.speed = getSpeed() - 10;
+        this.speed -= 10;
     }
 }
