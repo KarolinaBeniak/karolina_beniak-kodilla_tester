@@ -13,14 +13,18 @@ public class Audi implements Car{
     }
 
     @Override
-    public int increaseSpeed() {
-
-        return speed+20;
+    public void increaseSpeed() {
+        this.speed = getSpeed() + 10;
     }
 
     @Override
-    public int decreaseSpeed() {
-
-        return speed-15;
+    public void decreaseSpeed() {
+        this.speed = getSpeed() -10;
+    }
+    @Override
+    public String toString() {
+        return "Audi {"+
+               "speed =" + speed +
+                '}';
     }
 }
