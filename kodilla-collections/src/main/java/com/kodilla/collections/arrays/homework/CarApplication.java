@@ -22,14 +22,19 @@ public class CarApplication {
 
     public static Car drawCar() {
         Random random = new Random();
-        int randomCar = random.nextInt(3);
-        int randomSpeed = random.nextInt(150)+1;
+        int drawCarId = random.nextInt(3);
+        Car randomCar;
 
-        if (randomCar == 0)
-            return new Opel(randomSpeed);
-        else if (randomCar == 1)
-            return new Volkswagen(randomSpeed);
+        if (drawCarId == 0)
+            randomCar = new Opel(0);
+        else if (drawCarId == 1)
+           randomCar = new Volkswagen(0);
         else
-            return new Audi(randomSpeed);
+            randomCar = new Audi(0);
+
+        for (int i=0; i < random.nextInt(3); i++) {
+            randomCar.increaseSpeed();
+        }
+        return randomCar;
     }
 }
