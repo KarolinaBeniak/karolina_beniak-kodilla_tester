@@ -13,15 +13,15 @@ public class RandomNumbers {
             random = rnd.nextInt(31);
             suma += random;
         }
-        private static int getMinRandom() {
-            Random MIN = new Random();
-            if (random < min) min = random;
-            System.out.println("Min:" + min);
-        }
-        public static int getMaxRandom() {
-            Random MAX = new Random();
-            if (random > max) max = random;
-            System.out.println("Max:" + max);
-        }
+//        private static int getMinRandom() {
+//            Random MIN = new Random();
+//            if (random < min) min = random;
+//            System.out.println("Min:" + min);
+//        }
+//        public static int getMaxRandom() {
+//            Random MAX = new Random();
+//            if (random > max) max = random;
+//            System.out.println("Max:" + max);
+//        }
     }
 }

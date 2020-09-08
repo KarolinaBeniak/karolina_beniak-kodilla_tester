@@ -1,7 +1,10 @@
 package com.kodilla.collections.sets.homework;
 
 
+import com.sun.org.apache.xpath.internal.objects.XNull;
+
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class StampsApplication {
@@ -17,4 +20,11 @@ public class StampsApplication {
             System.out.println(stamp);
         }
     }
+
+
+
+
+
+
+
 }
