@@ -17,5 +17,9 @@ public class BookManager {
         }
         return book;
     }
+
+    public Set<Book> getBooks() {
+        return books;
+    }
 }
 
