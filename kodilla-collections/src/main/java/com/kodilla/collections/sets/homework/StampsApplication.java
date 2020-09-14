@@ -13,7 +13,7 @@ public class StampsApplication {
         stamps.add(new Stamp("Wroclaw", 10, false));
 
         System.out.println(stamps.size());
-        for (Stamp stamp : stamps){
+        for (Stamp stamp : stamps) {
             System.out.println(stamp);
         }
     }
