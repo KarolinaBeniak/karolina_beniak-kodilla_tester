@@ -8,14 +8,19 @@ public class BookManager {
     public Set<Book> books = new HashSet<>();
 
     public Book createBook(String title, String author) {
-        Book book = new Book(title, author);
-        if (books.contains(book)) {
-            System.out.println("The selected book already exists: " + book.getTitle() + " " + book.getAuthor());
-        } else {
-            System.out.println("This book has been added to the set of 'books': " + book.getTitle() + " " + book.getAuthor());
-            books.add(book);
+
+        for(Book b : books) {
+            if (b.getAuthor().equals(author) && b.getTitle().equals(title)) {
+                System.out.println("The selected book already exists: " + b.getTitle() + " " + b.getAuthor());
+                return b;
+            }
         }
+
+        Book book = new Book(title, author);
+        books.add(book);
+        System.out.println("This book has been added to the set of 'books': " + book.getTitle() + " " + book.getAuthor());
         return book;
+
     }
 
     public Set<Book> getBooks() {
