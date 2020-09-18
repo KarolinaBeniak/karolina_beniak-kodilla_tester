@@ -1,5 +1,7 @@
 package com.kodilla.stream.homework;
 
+import com.kodilla.stream.homework.Task;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

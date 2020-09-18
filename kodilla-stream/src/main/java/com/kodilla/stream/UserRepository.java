@@ -1,3 +1,7 @@
+package com.kodilla.stream;
+
+import com.kodilla.stream.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
