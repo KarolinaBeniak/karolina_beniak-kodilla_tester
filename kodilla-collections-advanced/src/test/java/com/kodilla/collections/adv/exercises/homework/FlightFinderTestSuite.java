@@ -37,19 +37,14 @@ class FlightFinderTestSuite {
     public void testNoDepartureFromAirport() {
         FlightFinder flightFinder = new FlightFinder();
         List<Flight> noDepartureTest = flightFinder.findFlightsFrom("Katowice");
-        List<Flight> scheduledList = new ArrayList<>();
-        scheduledList.isEmpty();
-
-        assertEquals(scheduledList, noDepartureTest);
+        assertTrue(noDepartureTest.isEmpty());
     }
 
     @Test
     public void testNoAirportArrivals() {
         FlightFinder flightFinder = new FlightFinder();
         List<Flight> noArrivalsTest = flightFinder.findFlightsTo("Zakopane");
-        List<Flight> scheduledList = new ArrayList<>();
-        scheduledList.isEmpty();
-        assertEquals(scheduledList, noArrivalsTest);
+        assertTrue(noArrivalsTest.isEmpty());
     }
 
     @Test
@@ -79,14 +74,13 @@ class FlightFinderTestSuite {
     public void testNullIsParametrToFindFlightsFrom(){
         FlightFinder flightFinder = new FlightFinder();
         List<Flight> nullTest = flightFinder.findFlightsFrom(null);
-
-        assertNull(null, "The object is empty.Try again.");
+        assertTrue(nullTest.isEmpty());
     }
     @Test
     public void testNullIsParametrToFindFlightsTo() {
         FlightFinder flightFinder = new FlightFinder();
         List<Flight> nullTest = flightFinder.findFlightsTo(null);
 
-        assertNull(null, "The object is empty.Try again.");
+        assertTrue(nullTest.isEmpty());
     }
 }
