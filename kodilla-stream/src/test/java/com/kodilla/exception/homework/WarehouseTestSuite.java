@@ -22,8 +22,6 @@ public class WarehouseTestSuite {
         //given
         Warehouse warehouse = new Warehouse();
         //when
-        Order result2 = warehouse.getOrder("KB-55");
-         //then
-        assertEquals(false, result2);
+        warehouse.getOrder("PJ-23");
     }
 }
