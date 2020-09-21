@@ -5,7 +5,7 @@ import com.kodilla.stream.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserRepository {
+public class UsersRepository {
     public static List<User> getUserList(){
         List<User> users = new ArrayList<>();
         users.add(new User("Walter White",50,7,"Chemists"));
