@@ -1,7 +1,10 @@
 package com.kodilla.parametrized_tests.homework;
 
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,14 +38,24 @@ class UserValidatorTestSuite {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {""})
+    @EmptySource
     public void shouldReturnFalseIfUserNameIsEmpty(String userName) {
         assertFalse(userValidator.validateUsername(userName));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {""})
+    @EmptySource
     public void shouldReturnTrueIfEmailIsEmpty(String email) {
         assertTrue(userValidator.validateEmail(email));
+    }
+
+    @ParameterizedTest
+    @NullSource
+    public void shouldReturnFalseIfUserNameIsNull(String userName) {
+        assertFalse(userValidator.validateUsername(null));
+    }
+    @Test
+    public void shouldReturnFalseIfEmailIsNull() {
+        assertFalse(userValidator.validateEmail(null));
     }
 }
