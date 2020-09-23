@@ -1,9 +1,8 @@
 package com.kodilla.parametrized_tests.homework;
 
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -25,37 +24,28 @@ class UserValidatorTestSuite {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"ma", "5 ", "!@~`#$%", "żółciowy", " "})
+    @ValueSource(strings = {"ma", "5 ", "!", "@", "~", "ż", "ó", "ł", " "})
     public void shouldReturnFalseIfUserNameIsIncorrect(String userName) {
         assertFalse(userValidator.validateUsername(userName));
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"namaste", "@nowa.pl", "janusz@nazwisko", "żół@pole.pl", " "})
+    @ValueSource(strings = {"namaste", "@nowa.pl", "janusz@nazwisko", "złoty@pole.pl", " "})
     public void shouldReturnFalseIfAdressEmailIsIncorrect(String email) {
         assertFalse(userValidator.validateEmail(email));
 
     }
 
     @ParameterizedTest
-    @EmptySource
-    public void shouldReturnFalseIfUserNameIsEmpty(String userName) {
+    @NullAndEmptySource
+    public void shouldReturnFalseIfUserNameIsEmpty(String userName){
         assertFalse(userValidator.validateUsername(userName));
     }
 
     @ParameterizedTest
-    @EmptySource
-    public void shouldReturnTrueIfEmailIsEmpty(String email) {
-        assertTrue(userValidator.validateEmail(email));
+    @NullAndEmptySource
+    public void shouldReturnFalseIfEmailIsEmpty(String email){
+        assertFalse(userValidator.validateUsername(email));
     }
 
-    @ParameterizedTest
-    @NullSource
-    public void shouldReturnFalseIfUserNameIsNull(String userName) {
-        assertFalse(userValidator.validateUsername(null));
-    }
-    @Test
-    public void shouldReturnFalseIfEmailIsNull() {
-        assertFalse(userValidator.validateEmail(null));
-    }
 }
