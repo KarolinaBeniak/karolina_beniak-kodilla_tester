@@ -32,7 +32,9 @@ public class Person {
             return "Obese Class IV (Morbidly Obese)";
         } else if (bmi < 60) {
             return "Obese Class V (Super Obese)";
+        } else if (bmi > 60) {
+            return "Obese Class VI (Hyper Obese)";
         }
-        return "Obese Class VI (Hyper Obese)";
+        return "Incorrect value. Try again!";
     }
 }
