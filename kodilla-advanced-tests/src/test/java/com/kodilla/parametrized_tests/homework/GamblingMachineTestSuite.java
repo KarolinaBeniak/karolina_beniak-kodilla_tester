@@ -19,7 +19,7 @@ public class GamblingMachineTestSuite {
         for (String element : tempTab) {
             integerSet.add(Integer.parseInt(element));
         }
-        assertTrue(gamblingMachine.howManyWins(integerSet) <= 6 || gamblingMachine.howManyWins(integerSet) >= 0);
+        assertTrue(gamblingMachine.howManyWins(integerSet) <= 6 && gamblingMachine.howManyWins(integerSet) >= 0);
         System.out.println(integerSet);
     }
 
