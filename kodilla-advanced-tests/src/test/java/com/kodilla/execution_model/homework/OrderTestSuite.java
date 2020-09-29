@@ -1,6 +1,5 @@
 package com.kodilla.execution_model.homework;
 
-import com.kodilla.execution_model.Item;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
@@ -19,13 +18,13 @@ class OrderTestSuite {
 
     @Test
     public void shouldReturnOrdersListFromLastHalfOfYear() {
-        List<Order> result = shop.returnOrderListFromLastHalfOfYear();
+        List<Order> result = shop.getOrdersListFromLastHalfOfYear();
         assertEquals(1, result.size());
     }
 
     @Test
     public void shouldSumAllOrderPrice() {
-        double sum = shop.returnSumAllOrdersPrice();
+        double sum = shop.getSumAllOrdersPrice();
         assertEquals(250.0, sum, 0.01);
     }
 
