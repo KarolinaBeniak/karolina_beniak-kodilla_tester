@@ -2,25 +2,27 @@ package com.kodilla.execution_model.homework;
 
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Shop {
-    private List<Order> orders = new ArrayList<>();
+    private Set<Order> orders = new HashSet<>();
 
     public void addOrder(Order order) {
         this.orders.add(order);
     }
 
-    public Order getOrder(int index) {
-        if (index >= 0 && index < orders.size()) {
-            return this.orders.get(index);
-        }
-        return null;
-    }
+    public Optional<Order> getOrder(Order order) {
+            for (Order obj : orders) {
 
-    public List<Order> returnOrderListFromLastHalfOfYear() {
+            }
+
+            return Optional.empty();
+        }
+
+
+
+    public List<Order> getOrdersListFromLastHalfOfYear() {
         return orders.stream()
                 .filter(o -> o.getDate().isAfter(LocalDate.now().minusMonths(6)))
                 .collect(Collectors.toList());
@@ -32,7 +34,7 @@ public class Shop {
                 .collect(Collectors.toList());
     }
 
-    public double returnSumAllOrdersPrice() {
+    public double getSumAllOrdersPrice() {
         double sum = 0;
         for (Order order : orders) {
             sum += order.getPrice();
