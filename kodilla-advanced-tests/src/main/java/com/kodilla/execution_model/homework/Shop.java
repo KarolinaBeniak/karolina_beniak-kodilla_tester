@@ -2,10 +2,7 @@ package com.kodilla.execution_model.homework;
 
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Shop {
@@ -15,12 +12,15 @@ public class Shop {
         this.orders.add(order);
     }
 
-    public Optional<Object> getOrder(int index) {
-        if (index >= 0 && index < orders.size()) {
-            return this.orders.(index);
+    public Optional<Order> getOrder(Order order) {
+            for (Order obj : orders) {
+
+            }
+
+            return Optional.empty();
         }
-        return Optional.empty();
-    }
+
+
 
     public List<Order> getOrdersListFromLastHalfOfYear() {
         return orders.stream()

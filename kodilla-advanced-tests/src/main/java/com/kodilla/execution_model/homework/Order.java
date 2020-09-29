@@ -8,10 +8,12 @@ public class Order {
     private LocalDate date;
     private String login;
 
+
     public Order(double price, LocalDate date, String login) {
         this.price = price;
         this.date = date;
         this.login = login;
+
     }
 
     public double getPrice() {
