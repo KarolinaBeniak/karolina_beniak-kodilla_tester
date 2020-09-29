@@ -1,7 +1,6 @@
 package com.kodilla.execution_model.homework;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Order {
     private double price;
@@ -26,20 +25,6 @@ public class Order {
         return login;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        return Double.compare(order.price, price) == 0 &&
-                Objects.equals(date, order.date) &&
-                Objects.equals(login, order.login);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(price, date, login);
-    }
 
     @Override
     public String toString() {
