@@ -12,13 +12,11 @@ public class Shop {
         this.orders.add(order);
     }
 
-    public Optional<Order> getOrder(Order order) {
-            for (Order obj : orders) {
-
-            }
-
-            return Optional.empty();
-        }
+//    public Optional<Order> getOrder(String orderNumber) {
+//
+//        orders.stream().filter(o -> o.ge)
+//            return Optional.empty();
+//        }
 
 
 
@@ -30,16 +28,18 @@ public class Shop {
 
     public List<Order> getOrdersFromRangeMinMax(LocalDate from, LocalDate to) {
         return orders.stream()
-                .filter(o -> o.getDate().isAfter(from) && o.getDate().isBefore(to))
+                .filter(o -> o.getDate().isAfter(from.minusDays(1)) && o.getDate().isBefore(to.plusDays(1)))
                 .collect(Collectors.toList());
     }
 
     public double getSumAllOrdersPrice() {
-        double sum = 0;
-        for (Order order : orders) {
-            sum += order.getPrice();
-        }
-        return sum;
+//        double sum = 0;
+//        for (Order order : orders) {
+//            sum += order.getPrice();
+//        }
+//        return sum;
+// alternatywnie:
+        return orders.stream().mapToDouble(Order::getPrice).sum();
     }
 
     public int getSize() {

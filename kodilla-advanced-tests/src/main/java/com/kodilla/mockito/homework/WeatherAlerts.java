@@ -18,7 +18,9 @@ public class WeatherAlerts {
     public void removeLocation(String location){
         this.locations.remove(location);
     }
+
     public boolean addClient(String location,Client client){
+        locations.putIfAbsent(location, new HashSet<>());
         return this.locations.get(location).add(client);
     }
 
