@@ -2,7 +2,6 @@ package com.kodilla.mockito.homework;
 
 import com.kodilla.mockito.Client;
 
-import javax.management.Notification;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -12,22 +11,28 @@ public class WeatherAlerts {
     private Map<String, Set<Client>> locations = new HashMap<>();
 
 
-    public void addLocation(String location){
+    public void addLocation(String location) {
         this.locations.put(location, new HashSet<>());
     }
-    public void removeLocation(String location){
+
+    public void removeLocation(String location) {
         this.locations.remove(location);
     }
-    public boolean addClient(String location,Client client){
+
+
+    public boolean addClient(String location, Client client) {
+        locations.putIfAbsent(location, new HashSet<>());
         return this.locations.get(location).add(client);
     }
 
     public boolean removeClient(String location, Client client) {
         return this.locations.get(location).remove(client);
     }
-    public void removeClients(Client client){
+
+    public void removeClientFromAllLocation(Client client) {
         this.locations.values().forEach(clients -> clients.remove(client));
     }
+
     public void notifyClient(String location, Notification notification) {
         this.locations.get(location).forEach(client -> client.receive(notification));
     }
@@ -40,4 +45,3 @@ public class WeatherAlerts {
         return locations;
     }
 }
-

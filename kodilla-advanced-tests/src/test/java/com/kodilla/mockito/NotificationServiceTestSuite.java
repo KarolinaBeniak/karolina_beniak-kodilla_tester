@@ -1,9 +1,9 @@
 package com.kodilla.mockito;
 
+import com.kodilla.mockito.homework.Notification;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import javax.management.Notification;
 
 public class NotificationServiceTestSuite {
     NotificationService notificationService = new NotificationService();

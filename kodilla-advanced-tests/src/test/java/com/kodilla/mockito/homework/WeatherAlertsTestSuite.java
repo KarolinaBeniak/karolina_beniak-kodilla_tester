@@ -5,7 +5,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import javax.management.Notification;
+
+import java.util.Map;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,22 +28,69 @@ class WeatherAlertsTestSuite {
     }
 
     @Test
-    public void shouldAddClientToLocation() {
+    public void shouldAddClientToLocation() { // dodanie klienta do lokalizacji
         boolean result = weatherAlerts.addClient("Wrocłąw", secondClient);
         assertTrue(result);
     }
 
     @Test
-    public void shouldRemoveClientFromLocation() {
+    public void shouldRemoveClientFromLocation() { // usuniecie klienta z danej lokalizacji
+
         boolean result = weatherAlerts.removeClient("Wrocław", secondClient);
         assertTrue(result);
     }
+
     @Test
-    public void shouldNotifyCliuentsForLocation(){
+    public void shouldRemoveClientFromAllLocations() { // wypisanie subskrybenta ze wszystkich lokalizacji
+        weatherAlerts.removeClientFromAllLocation(firstClient);
+        Mockito.verify(firstClient, Mockito.never()).receive(notification);
+
+
+    }
+
+    @Test
+    public void shouldNotifyClientsForLocation() { //wysłanie powiadomienia do klientów dla danej lokalizacji
         weatherAlerts.notifyClient("Wrocław", notification);
         Mockito.verify(firstClient, Mockito.times(1)).receive(notification);
         Mockito.verify(secondClient, Mockito.times(1)).receive(notification);
         Mockito.verify(thirdClient, Mockito.never()).receive(notification);
+    }
+
+    @Test
+    public void shouldNotifyAllClients() { // powiadomienie do wszystkich
+        weatherAlerts.notifyClients(notification);
+        Mockito.verify(firstClient, Mockito.times(1)).receive(notification);
+        Mockito.verify(secondClient, Mockito.times(1)).receive(notification);
+        Mockito.verify(thirdClient, Mockito.times(1)).receive(notification);
+
+    }
+
+    @Test
+    public void shouldRemoveLocation() { // skasowanie danej lokalizacji
+        weatherAlerts.removeLocation("Wrocław");
+        Map<String, Set<Client>> locations = weatherAlerts.getLocations();
+        assertEquals(1, locations.get("Kraków").size());
+    }
+
+    @Test
+    public void shouldReturnFalseIsLocationIsInncorect() {
+        weatherAlerts.addLocation("Kraków");
+        Map<String, Set<Client>> result = weatherAlerts.getLocations();
+        assertFalse(result.isEmpty());
+    }
+
+    @Test
+    public void shouldReturnFalseIfLocationIsNull() {
+        weatherAlerts.addLocation(null);
+        Map<String, Set<Client>> result = weatherAlerts.getLocations();
+        assertFalse(result.isEmpty());
+    }
+
+    @Test
+    public void shouldReturnFalseIfClientisNull() {
+        weatherAlerts.addClient("Wrocław", null);
+        Map<String, Set<Client>> result = weatherAlerts.getLocations();
+        assertFalse(result.isEmpty());
 
     }
 }

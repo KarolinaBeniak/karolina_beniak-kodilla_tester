@@ -1,6 +1,6 @@
 package com.kodilla.mockito;
 
-import javax.management.Notification;
+import com.kodilla.mockito.homework.Notification;
 
 public interface Client {
 
