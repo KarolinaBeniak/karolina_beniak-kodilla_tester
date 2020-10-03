@@ -10,9 +10,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrderTestSuite {
 
     Shop shop = new Shop();
-        Order order1 = new Order(100.0, LocalDate.of(2020, 7, 4), "Benia1"));
-        Order order2 = new Order(50.0, LocalDate.of(2020, 1, 1), "Wenusmon13"));
-        Order order3 = new Order(100.0, LocalDate.of(2019, 5, 14), "Lejdi3"));
+    Order order1 = new Order(100.0, LocalDate.of(2020, 7, 4), "Benia1");
+    Order order2 = new Order(50.0, LocalDate.of(2020, 1, 1), "Wenusmon13");
+    Order order3 = new Order(100.0, LocalDate.of(2019, 5, 14), "Lejdi3");
+
+    @BeforeEach
+    public void initializeShop() {
+        shop.addOrder(order1);
+        shop.addOrder(order2);
+        shop.addOrder(order3);
+    }
 
     @Test
     public void shouldAddAllOrders() {
@@ -27,9 +34,22 @@ class OrderTestSuite {
 
     @Test
     public void shouldSumAllOrderPrice() {
-        double sum = shop.getSumAllOrdersPrice();
+        double sum = shop.getSumAllOrdersPrice(order1.getPrice() + order2.getPrice() + order3.getPrice());
         assertEquals(250.0, sum, 0.01);
     }
+
+    @Test
+    public void shouldReturnHighestPriceOrder() {
+        double result = shop.getMaxValue();
+        assertEquals(100.0, result);
+    }
+
+    @Test
+    public void shouldReturnLowestPriceOrder() {
+        double result = shop.getMinValue();
+        assertEquals(50.0, result);
+    }
+
 
     @Test
     public void shouldGetOrdersFromJanuary() {
@@ -50,11 +70,9 @@ class OrderTestSuite {
     }
 
     @Test
-    public void shouldGetExistingOrder() {
-        Order result = shop.getOrder(order2);
-        assertEquals("Wenusmon13", result.getLogin());
-        assertEquals(50.0, result.getPrice(), 0.01);
-        assertEquals(LocalDate.of(2020, 1, 1), result.getDate());
+    public void shouldReturnZeroSumIfNoOrdersExists() {
+        double result = shop.getSumAllOrdersPrice(0);
+        assertEquals(0, result);
     }
 
 
@@ -71,12 +89,6 @@ class OrderTestSuite {
     @AfterAll
     public static void displayGoodByeMessage() {
         System.out.println("Finishing testing");
-    }
-    @BeforeEach
-    public void initializeShop() {
-        shop.addOrder(order1);
-        shop.addOrder(order2);
-        shop.addOrder(order3);
     }
 
 }
