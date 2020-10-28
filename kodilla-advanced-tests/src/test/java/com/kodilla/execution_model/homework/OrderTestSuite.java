@@ -3,6 +3,7 @@ package com.kodilla.execution_model.homework;
 import org.junit.jupiter.api.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,9 +17,9 @@ class OrderTestSuite {
 
     @BeforeEach
     public void initializeShop() {
-        shop.addOrder(order1);
-        shop.addOrder(order2);
-        shop.addOrder(order3);
+        shop.addNewOrderToList(order1);
+        shop.addNewOrderToList(order2);
+        shop.addNewOrderToList(order3);
     }
 
     @Test
@@ -34,7 +35,7 @@ class OrderTestSuite {
 
     @Test
     public void shouldSumAllOrderPrice() {
-        double sum = shop.getSumAllOrdersPrice(order1.getPrice() + order2.getPrice() + order3.getPrice());
+        double sum = shop.getSumAllOrdersPrice();
         assertEquals(250.0, sum, 0.01);
     }
 
@@ -53,26 +54,32 @@ class OrderTestSuite {
 
     @Test
     public void shouldGetOrdersFromJanuary() {
-        List<Order> result = shop.getOrdersFromRangeMinMax(LocalDate.of(2019, 12, 31), LocalDate.of(2020, 2, 1));
+        List<Order> result = shop.getOrdersFromRangeDate(LocalDate.of(2019, 12, 31), LocalDate.of(2020, 2, 1));
         assertEquals(1, result.size());
     }
 
     @Test
     public void shouldGetOrderFromEmptyRange() {
-        List<Order> result = shop.getOrdersFromRangeMinMax(LocalDate.of(2018, 2, 28), LocalDate.of(2018, 4, 1));
+        List<Order> result = shop.getOrdersFromRangeDate(LocalDate.of(2018, 2, 28), LocalDate.of(2018, 4, 1));
         assertEquals(0, result.size());
     }
 
     @Test
     public void shouldReturnZeroIfTryingToGetOrdersOutOfDatesRange() {
-        List<Order> result = shop.getOrdersFromRangeMinMax(LocalDate.of(2018, 6, 1), LocalDate.of(2019, 1, 1));
+        List<Order> result = shop.getOrdersFromRangeDate(LocalDate.of(2018, 6, 1), LocalDate.of(2019, 1, 1));
         assertEquals(0, result.size());
     }
 
     @Test
     public void shouldReturnZeroSumIfNoOrdersExists() {
-        double result = shop.getSumAllOrdersPrice(0);
+        List<Order> orderEmpty = new ArrayList<>();
+        double  result = shop.getSumAllOrdersPrice();
         assertEquals(0, result);
+    }
+    @Test
+    public void shouldGetTotalAmountOfAllOrders() {
+        List<Order> result= shop.getOrdersByRangeOfAmounts(0,5000);
+        assertEquals(3, result.size());
     }
 
 
